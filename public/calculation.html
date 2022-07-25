@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sample web page</title>
+  <style>
+    body {
+      margin: 0;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+    }
+
+    .container{
+        display: flex;
+        justify-content:center;
+        align-items: center;
+    }
+
+    .row{
+        flex-direction: row;
+    }
+
+    .col{
+        flex-direction: column;
+    }
+
+    .wrapper{
+        margin: 16px;
+    }
+
+    .button{
+        margin: 16px;
+        margin-top: 32px;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+    .anchor{
+        margin-top: 5rem;
+    }
+    .result-container{
+        margin-top: 32px;
+        margin-bottom: 32px;
+        width: 90px;
+        height: 20px;
+        border: 2px solid black;
+        padding: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container col wrapper">
+    <h1>Calculator</h1>
+    <div class="container row wrapper">
+        number 1 &nbsp;<input type="number" id="number1"/> &nbsp;&nbsp;
+        number 2 &nbsp;<input type="number" id="number2"/>
+    </div>
+    <div>
+        <button class="button" onclick="calculate('add')">Add</button>
+        <button class="button" onclick="calculate('sub')">Subtract</button>
+        <button class="button" onclick="calculate('mul')">Multiply</button>
+    </div>
+    <div class="result-container">
+        Result - &nbsp;<span id="result"></span>
+    </div>
+    <a href="/" class="anchor">&#8592; &nbsp;Back to home</a>
+  </div>
+</body>
+
+<script>
+    function calculate(operation){
+       const num1 = document.getElementById('number1').value;
+       const num2 = document.getElementById('number2').value;
+       const result = document.getElementById('result');
+       console.log(randomText)
+        if(num1 && num2){
+            fetch(`${operation}`, {
+                method: 'POST',
+                headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({num1,num2})
+            }).then(res => res.json()).then(value => result.innerText= value.result)
+        }
+    }
+</script>
+
+</html>

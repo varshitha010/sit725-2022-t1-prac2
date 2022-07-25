@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sample web page</title>
+  <style>
+    body {
+      margin: 0;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+    }
+
+    .container{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: column;
+    }
+    .img {
+      height: 700px;
+      width: 800px;
+      background:  url('https://i.gifer.com/AqCN.gif');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+      font-weight: 600;
+      /* margin-bottom: 2rem; */
+    }
+    .align-left{
+      align-items: flex-start;
+    }
+    .align-center{
+      text-align: center;
+    }
+    li{
+      padding: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="container img">
+        <div class="align-center">
+          <h2>Hi There!</h2>
+          <p>This is a sample web page.</p>
+        </div>
+        
+        <div class="container align-left">
+          <li>
+          <a href="/calculation">Click here for Calculator</a></li>
+          <li><a href="/random-text">Random Text Generator</a>
+        </li>
+        </div>
+       
+    </div>
+   
+  </div>
+</body>
+
+</html>

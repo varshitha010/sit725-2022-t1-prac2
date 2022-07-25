@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sample web page</title>
+  <style>
+    body {
+      margin: 0;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+    }
+
+    .container{
+        display: flex;
+        justify-content:center;
+        align-items: center;
+    }
+
+    .row{
+        flex-direction: row;
+    }
+
+    .col{
+        flex-direction: column;
+    }
+
+    .wrapper{
+        margin: 16px;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+    .anchor{
+        margin-top: 6rem;
+    }
+    .random-container{
+        margin-top: 8px;
+        height: 20px;
+        padding: 8px;
+    }
+    .text-center{
+        text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container col wrapper">
+    <h1>Random Text Generator</h1>
+    <div class="random-container text-center">
+       <button onclick="getRandomText()">Click here for random text</button>
+       <h4 id="random-text"></h4>
+    </div>
+    <a href="/" class="anchor">&#8592; &nbsp;Back to home</a>
+  </div>
+</body>
+
+<script>
+    function getRandomText(){
+        const randomText = document.getElementById('random-text');
+            fetch(`getRandomText`, {
+                method: 'GET',
+                headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+            }).then(res => res.json()).then(value => randomText.innerText= value.result)
+    }
+</script>
+
+</html>
